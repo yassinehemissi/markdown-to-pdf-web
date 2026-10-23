@@ -4,6 +4,7 @@ import { links } from '@/constants/links'
 import { readNotes, storeNotes } from '@/lib/note-storage'
 import type { Note } from '@/types/note.types'
 import { welcomeNote } from '../workspace.constants'
+import { noteUrlId } from '../(utils)/note-url'
 import type { ViewMode, WorkspaceState } from '../workspace.types'
 
 export function useWorkspaceState(): WorkspaceState {
@@ -34,7 +35,7 @@ export function useWorkspaceState(): WorkspaceState {
     const note: Note = { id: crypto.randomUUID(), title: name.trim(), content: '', updatedAt: Date.now() }
     setNotes(old => [note, ...old]); setCreateOpen(false)
     if (window.innerWidth < 760) setSidebar(false)
-    void navigate({ to: links.workspace.note, params: { noteId: note.id } })
+    void navigate({ to: links.workspace.note, params: { noteId: noteUrlId(note) } })
   }
   function confirmDelete() {
     if (!deleting) return
