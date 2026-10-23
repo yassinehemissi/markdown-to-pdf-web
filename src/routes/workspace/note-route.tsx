@@ -13,8 +13,16 @@ export function NoteRoute() {
   const canonicalId = note ? noteUrlId(note) : undefined
   useLayoutEffect(() => {
     if (canonicalId && canonicalId !== noteId) {
-      void navigate({ to: links.workspace.note, params: { noteId: canonicalId }, replace: true })
+      void navigate({
+        to: links.workspace.note,
+        params: { noteId: canonicalId },
+        replace: true,
+      })
     }
   }, [canonicalId, noteId, navigate])
-  return note ? <NoteEditor key={note.id} note={note} /> : <EmptyState missing />
+  return note ? (
+    <NoteEditor key={note.id} note={note} />
+  ) : (
+    <EmptyState missing />
+  )
 }

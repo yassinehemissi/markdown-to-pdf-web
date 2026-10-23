@@ -8,7 +8,16 @@ export function NotesIndexRoute() {
   const { notes } = useWorkspace()
   const navigate = useNavigate()
   useEffect(() => {
-    if (notes.length) void navigate({ to: links.workspace.note, params: { noteId: noteUrlId([...notes].sort((a, b) => b.updatedAt - a.updatedAt)[0]) }, replace: true })
+    if (notes.length)
+      void navigate({
+        to: links.workspace.note,
+        params: {
+          noteId: noteUrlId(
+            [...notes].sort((a, b) => b.updatedAt - a.updatedAt)[0],
+          ),
+        },
+        replace: true,
+      })
   }, [notes, navigate])
   return <EmptyState />
 }

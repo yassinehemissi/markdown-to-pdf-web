@@ -5,5 +5,7 @@ describe('download filenames', () => {
     expect(filename('  Café: ideas / notes?  ')).toBe('Café ideas  notes')
     expect(filename('\u0000<>:"/\\|?*')).toBe('Untitled note')
   })
-  it('bounds very long titles', () => { expect(filename('a'.repeat(500))).toHaveLength(100) })
+  it('bounds very long titles', () => {
+    expect(filename('a'.repeat(500))).toHaveLength(100)
+  })
 })

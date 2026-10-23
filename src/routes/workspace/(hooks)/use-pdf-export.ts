@@ -11,8 +11,13 @@ export function usePdfExport({ note, html }: EditorToolbarProps) {
       const { exportNotePdf } = await import('../(utils)/pdf')
       await exportNotePdf(note.title || 'Untitled note', html)
       notify('PDF downloaded')
-    } catch { notify('PDF export failed. Check your connection to Google Fonts and try again.') }
-    finally { setExporting(false) }
+    } catch {
+      notify(
+        'PDF export failed. Check your connection to Google Fonts and try again.',
+      )
+    } finally {
+      setExporting(false)
+    }
   }
   return { exporting, exportPdf }
 }
