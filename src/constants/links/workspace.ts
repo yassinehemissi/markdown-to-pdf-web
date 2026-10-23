@@ -1,1 +1,5 @@
-export const workspaceLinks = { home: '/', note: '/notes/$noteId' } as const
+export const workspaceLinks = {
+  home: '/',
+  notes: '/notes',
+  note: '/notes/$noteId',
+} as const

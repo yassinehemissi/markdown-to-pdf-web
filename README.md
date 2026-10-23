@@ -29,4 +29,4 @@ pnpm dev
 
 Built with Vite, Preact, TypeScript, TanStack Router, Tailwind CSS, shadcn/ui, and pdfmake.
 
-For static hosting, serve `dist/` and redirect application routes to `index.html` so note links work on refresh.
+Vercel routing is configured in `vercel.json`. For other static hosts, serve `dist/` and redirect application routes to `index.html` so note links work on refresh.

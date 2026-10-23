@@ -24,9 +24,14 @@ const noteRoute = createRoute({
   path: links.workspace.note,
   component: NoteRoute,
 })
+const notesRoute = createRoute({
+  getParentRoute: () => rootRoute,
+  path: links.workspace.notes,
+  component: NotesIndexRoute,
+})
 export function createAppRouter(history = createBrowserHistory()) {
   return createRouter({
     history,
-    routeTree: rootRoute.addChildren([indexRoute, noteRoute]),
+    routeTree: rootRoute.addChildren([indexRoute, notesRoute, noteRoute]),
   })
 }
